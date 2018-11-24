@@ -22,7 +22,6 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={{flex: 1}}>
-          <Text style={{ margin: 30}}></Text>
            {/*<UdaciStatusBar backgroundColor={purple} barStyle="light-content" />*/}
            <MainNavigator />
         </View>

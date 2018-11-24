@@ -14,9 +14,10 @@ const MainNavigator = createStackNavigator({
   Deck: {
     screen: Deck,
     navigationOptions: ({ navigation }) => ({
-      headerTintColor: '#fff',
+      headerTintColor: 'white',
+      inactiveTintColor: 'black',
       headerStyle: {
-        backgroundColor: "#555",
+        backgroundColor: 'red',
       },
     }),
   },

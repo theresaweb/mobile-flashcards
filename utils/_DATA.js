@@ -1,4 +1,4 @@
-let decks = {
+const defaultDecks = {
   React: {
     title: 'React',
     questions: [
@@ -20,10 +20,5 @@ let decks = {
         answer: 'The combination of a function and the lexical environment within which that function was declared.'
       }
     ]
-  }
-}
-let answers = {
-  React: {
-    [true, false]
   }
 }

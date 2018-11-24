@@ -10,14 +10,14 @@ const Tabs = createBottomTabNavigator(
     DeckList: {
       screen: DeckList,
       navigationOptions: {
-        tabBarLabel: 'Flashcards',
-        tabBarIcon: () => <MaterialCommunityIcons name='cards-outline' size={30} color={'#fff'} />
+        tabBarLabel: 'Decks',
+        tabBarIcon: ({tintColor}) => <MaterialCommunityIcons name='cards-outline' size={30} color={tintColor} />
       },
     },
     AddDeck: {
       screen: AddDeck,
       navigationOptions: {
-        tabBarIcon: () => <MaterialCommunityIcons name='plus-box-outline' size={30} color={'#fff'} />
+        tabBarIcon: ({tintColor}) => <MaterialCommunityIcons name='plus-box-outline' size={30} color={tintColor} />
 
       }
     }
@@ -26,11 +26,11 @@ const Tabs = createBottomTabNavigator(
       header: null
     },
     tabBarOptions: {
-      activeTintColor: '#fff',
-      inactiveTintColor: 'maroon',
+      activeTintColor: 'white',
+      inactiveTintColor: 'lightblue',
       style: {
         height: 56,
-        backgroundColor: '#ee204d',
+        backgroundColor: 'red',
       }
     }
   }
