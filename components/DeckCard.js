@@ -8,6 +8,7 @@ class DeckCard extends Component {
     return (
         <View>
           <Text>Title: {deck[0].title}</Text>
+          <Text>{deck[0].questions.length} question(s)</Text>
         </View>
       )
     }

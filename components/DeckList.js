@@ -22,8 +22,15 @@ class DeckList extends Component {
     const { decks, navigation } = this.props
     const {navigate} = navigation
     const { ready } = this.state
-     if (ready === false) {
+    if (ready === false) {
       return <Text>Loading...</Text>
+    }
+    if (!decks.length) {
+      return (
+        <View style={{marginTop: 20}}>
+          <Text>Add your first deck!</Text>
+        </View>
+      )
     }
     return (
       decks.map(function(deck, index) {
@@ -50,13 +57,16 @@ const styles = StyleSheet.create({
   }
 })
 function mapStateToProps (decks) {
-  const allDecks = decks.decks
-  console.log("allDecks",allDecks)
-  var decksArr = Object.keys(allDecks).map(function(key) {
-    return [allDecks[key]];
-  });
+  let allDecks = {}
+  let decksArr = []
+  if (decks.decks) {
+    allDecks = decks.decks
+    decksArr = Object.keys(allDecks).map(function(key) {
+      return [allDecks[key]];
+    });
+  }
  return {
-   decks: decksArr
+   decks: decksArr.length ? decksArr : {}
  }
 }
 export default connect(mapStateToProps)(DeckList)

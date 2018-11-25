@@ -1,6 +1,4 @@
- import {AsyncStorage} from 'react-native';
  import { GET_DECKS, ADD_DECK } from '../actions'
-
 
  const initialState = {
    decks:  {
@@ -28,20 +26,19 @@
      }
    }
  }
- export default (state = initialState, action) => {
+export default function decks (state = initialState, action) {
    switch (action.type) {
-     case 'GET_DECKS':
-       if (action.decks) {
-         AsycStorage.getItem('decks', action.decks)
-       }
-       return {
-         ...state,
-         decks: action.decks || state.decks
-       }
-       case ADD_DECK :
+     case GET_DECKS:
          return {
            ...state,
-           ...action.deck
+           ...action.decks
+         }
+       case ADD_DECK:
+       const decks = state.decks ? state.decks : {}
+       decks[action.deck.title] = action.deck
+         return {
+             ...state,
+             decks: decks
          }
      default:
        return state

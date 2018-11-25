@@ -3,6 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Questions from './Questions'
 
 class Deck extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const { deck } = navigation.state.params
+     return {
+      title: deck[0].title
+    }
+  }
   render() {
     const { navigation } = this.props
     const {navigate} = navigation
@@ -10,7 +16,14 @@ class Deck extends Component {
      return (
       <View>
         <Text>{deck[0].title}</Text>
-        <TouchableOpacity><Text>Add Card</Text></TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigate(
+            'AddQuestion',
+            { deck: deck[0] }
+            )}
+            >
+          <Text>Add Card</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigate(
             'Questions',

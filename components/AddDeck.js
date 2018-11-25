@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet, TextInput } from 'react-native'
-import { submitEntry } from '../utils/api'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
 import { NavigationActions } from 'react-navigation'
 
 class AddDeck extends Component {
   state = {
-   deck: {},
-   title: 'Deck Title'
+   title: ''
   }
   submit = () => {
-    const key = this.state.title
-    const newDeck = {}
-    newDeck[key] = {title: this.state.title}
-    console.log("newDeck",newDeck)
-    this.props.dispatch(addDeck(newDeck))
+    const { dispatch } = this.props
+    const newDeck  = {title: this.state.title, questions: []}
+    dispatch(addDeck(newDeck))
     this.setState(() => ({ deck: {}, title: '' }))
     this.toHome()
-    submitEntry({ newDeck })
      //clearLocalNotification()
        //.then(setLocalNotification)
   }
@@ -28,12 +23,12 @@ class AddDeck extends Component {
   render() {
     return (
       <View style={{ marginTop: 20}}>
+        <Text>What is the title of your new deck?</Text>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
           onChangeText={(title) => this.setState({title})}
           value={this.state.title}
         />
-        <Text>{this.state.title}</Text>
         <TouchableOpacity
           onPress={this.submit}>
             <Text>Add Deck</Text>
@@ -47,7 +42,6 @@ class AddDeck extends Component {
     }
   })
 function mapStateToProps (decks) {
-  console.log("the decks store",decks)
   const allDecks = decks.decks
     return {
      decks: allDecks
