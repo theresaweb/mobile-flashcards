@@ -5,6 +5,10 @@ ____
 
 To Run
 ____
+* Install expo and get up and running https://docs.expo.io/versions/v31.0.0/
+* Set up Android Studio Emulator and launch virtual device see: https://docs.expo.io/versions/latest/workflow/android-studio-emulator.html
+* cd to directory and run `npm install`
+* run `expo start`
 
 Considerations
 _____
