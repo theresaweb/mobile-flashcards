@@ -1,4 +1,4 @@
- import { GET_DECKS, ADD_DECK } from '../actions'
+ import { GET_DECKS, UPDATE_DECK } from '../actions'
 
  const initialState = {
    decks:  {
@@ -33,13 +33,15 @@ export default function decks (state = initialState, action) {
            ...state,
            ...action.decks
          }
-       case ADD_DECK:
+     case UPDATE_DECK:
        const decks = state.decks ? state.decks : {}
        decks[action.deck.title] = action.deck
-         return {
-             ...state,
-             decks: decks
-         }
+       console.log("deck sent to be merged", action.deck)
+       console.log("decks after merge of new question", decks)
+       return {
+           ...state,
+           decks: decks
+       }
      default:
        return state
    }

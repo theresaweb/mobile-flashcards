@@ -43,7 +43,7 @@ class DeckList extends Component {
                 { deck: thisDeck }
                 )}
                 >
-              <DeckCard  deck={thisDeck}/>
+              <DeckCard deck={thisDeck} />
             </TouchableOpacity>
         </View>
         )

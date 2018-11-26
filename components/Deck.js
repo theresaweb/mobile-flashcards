@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Questions from './Questions'
+import AddQuestion from './AddQuestion'
 
 class Deck extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -22,12 +23,12 @@ class Deck extends Component {
             { deck: deck[0] }
             )}
             >
-          <Text>Add Card</Text>
+          <Text>Add Question</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigate(
             'Questions',
-            { questions: deck[0].questions }
+            { deck: deck[0] }
             )}
             >
           <Text>Start Quiz</Text>

@@ -1,5 +1,5 @@
 export const GET_DECKS = 'GET_DECKS'
-export const ADD_DECK = 'ADD_DECK'
+export const UPDATE_DECK = 'UPDATE_DECK'
 
 export function getDecks (decks) {
   return {
@@ -7,9 +7,9 @@ export function getDecks (decks) {
     decks,
   }
 }
-export function addDeck (deck) {
+export function updateDeck (deck) {
  return {
-   type: ADD_DECK,
+   type: UPDATE_DECK,
    deck,
  }
 }
