@@ -10,8 +10,13 @@ const options = {
   headerTintColor: 'white',
   inactiveTintColor: 'black',
   headerStyle: {
-    backgroundColor: 'blue',
+    elevation: 0, // only applied to Android to remove the shadow in the header
+    shadowOpacity: 0, // for removing the shadow in the header
+    backgroundColor: 'blue'
   },
+  headerTitleStyle: {
+    color: 'white'
+  }
 }
 const MainNavigator = createStackNavigator({
   home: {
@@ -36,6 +41,5 @@ const MainNavigator = createStackNavigator({
     screen: AddQuestion,
     navigationOptions: ({ navigation }) => (options),
   },
-});
-
+})
 export default createAppContainer(MainNavigator)

@@ -1,15 +1,28 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native'
+import { NavigationActions, withNavigation } from 'react-navigation'
 
 class DeckCard extends Component {
-
+  toDeck = () => {
+    const deck = this.props.deck
+    const navigateAction = NavigationActions.navigate({
+      routeName: 'Deck',
+      params: {deck: deck},
+    });
+    this.props.navigation.dispatch(navigateAction);
+  }
   render() {
+    console.log("this.propsss",this.props)
     const deck = this.props.deck
     return (
-        <View>
-          <Text>Title: {deck.title}</Text>
-          <Text>{deck.questions.length} card(s)</Text>
-        </View>
+        <Animated.View style={styles.deckBtn}>
+          <TouchableOpacity
+            onPress={this.toDeck} >
+
+            <Text>Title: {deck.title}</Text>
+            <Text>{deck.questions.length} card(s)</Text>
+          </TouchableOpacity>
+        </Animated.View>
       )
     }
   }
@@ -18,4 +31,4 @@ class DeckCard extends Component {
 
     }
   })
- export default DeckCard
+ export default withNavigation(DeckCard)

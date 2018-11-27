@@ -38,9 +38,6 @@ class Questions extends Component {
       }
     })
   }
-  toHomex = () => {
-    this.props.navigation.dispatch(NavigationActions.back({key: 'DeckList'}))
-  }
   toHome = () => {
     const navigateAction = NavigationActions.navigate({
       routeName: 'home',

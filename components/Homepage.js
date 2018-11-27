@@ -23,21 +23,33 @@ class Homepage extends Component {
       return <Text>Loading...</Text>
     }
     return (
-    <View style={{ marginTop: 20}}>
+    <View style={styles.view}>
+      <DeckList decks={decks} navigation={this.props.navigation} />
       <TouchableOpacity
+        style={styles.button}
         onPress={() =>
           this.props.navigation.push('AddDeck')}
           >
         <Text>Add a new deck</Text>
       </TouchableOpacity>
-      <DeckList decks={decks} navigation={this.props.navigation} />
     </View>
      )
   }
 }
 const styles = StyleSheet.create({
-  item: {
-
+  view: {
+    flex: 1,
+    marginTop: 20,
+    backgroundColor: 'green',
+    color: 'white',
+    fontSize: 18,
+  },
+  button: {
+    color: 'black',
+    backgroundColor: 'blue',
+    width: 300,
+    padding: 20,
+    justifyContent: 'space-around'
   }
 })
 function mapStateToProps (decks) {
