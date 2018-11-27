@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, StyleSheet, TextInput } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet, TextInput, Animated } from 'react-native'
 import { connect } from 'react-redux'
 import { updateDeck } from '../actions'
 import { NavigationActions } from 'react-navigation'
+import FadeAlert from './FadeAlert'
 
 class AddQuestion extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -42,20 +43,20 @@ class AddQuestion extends Component {
         <Text>Question:</Text>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(question) => this.setState({question})}
+          onChangeText={(question) => this.setState({question, added: false})}
           value={this.state.question}
         />
         <Text>Answer:</Text>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(answer) => this.setState({answer})}
+          onChangeText={(answer) => this.setState({answer, added: false})}
           value={this.state.answer}
         />
         <TouchableOpacity
           onPress={this.submit}>
             <Text>Add Question</Text>
         </TouchableOpacity>
-         {this.state.added && <Text>Question has been added}</Text>}
+         {this.state.added && <FadeAlert alert={'Question has been added'} />}
          <TouchableOpacity
            onPress={this.toDeck}>
              <Text>Back to Deck</Text>
