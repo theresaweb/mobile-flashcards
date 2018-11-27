@@ -7,8 +7,8 @@ class DeckCard extends Component {
     const deck = this.props.deck
     return (
         <View>
-          <Text>Title: {deck[0].title}</Text>
-          <Text>{deck[0].questions.length} question(s)</Text>
+          <Text>Title: {deck.title}</Text>
+          <Text>{deck.questions.length} card(s)</Text>
         </View>
       )
     }

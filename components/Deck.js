@@ -7,32 +7,33 @@ class Deck extends Component {
   static navigationOptions = ({ navigation }) => {
     const { deck } = navigation.state.params
      return {
-      title: deck[0].title
+      title: deck.title
     }
   }
   render() {
-    const { navigation } = this.props
-    const {navigate} = navigation
-    const deck = navigation.getParam('deck', null)
+    const deck = this.props.navigation.getParam('deck', null)
+    console.log("dec in Deck", deck)
      return (
       <View>
-        <Text>{deck[0].title}</Text>
+        <Text>{deck.title}</Text>
         <TouchableOpacity
-          onPress={() => navigate(
+          onPress={() => this.props.navigation.navigate(
             'AddQuestion',
-            { deck: deck[0] }
+            { deck: deck }
             )}
             >
           <Text>Add Question</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigate(
-            'Questions',
-            { deck: deck[0] }
-            )}
-            >
-          <Text>Start Quiz</Text>
-        </TouchableOpacity>
+        {deck.questions.length > 0 &&
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate(
+              'Questions',
+              { deck: deck }
+              )}
+              >
+            <Text>Start Quiz</Text>
+          </TouchableOpacity>
+        }
       </View>
       )
     }

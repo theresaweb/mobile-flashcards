@@ -3,26 +3,34 @@ import { View, TouchableOpacity, Text, StyleSheet, TextInput } from 'react-nativ
 import { connect } from 'react-redux'
 import { updateDeck } from '../actions'
 import { NavigationActions } from 'react-navigation'
-import DeckList from './DeckList'
 
 class AddDeck extends Component {
+  static navigationOptions = ({ navigation }) => {
+     return {
+      title: 'New Deck'
+    }
+  }
   state = {
+   deck: {},
    title: ''
   }
   submit = () => {
-    console.log("submit", this.state.title)
+    console.log("new title", this.state.title)
+    const { title } = this.state
     const { dispatch } = this.props
-    const newDeck  = {title: this.state.title, questions: []}
+    const newDeck  = {title: title, questions: []}
     dispatch(updateDeck(newDeck))
+    console.log("newDeck",newDeck)
     this.setState(() => ({ deck: {}, title: '' }))
-    this.toHome()
+    this.toDeck(newDeck)
      //clearLocalNotification()
        //.then(setLocalNotification)
   }
-  toHome = () => {
+  toDeck(newDeck) {
     const navigateAction = NavigationActions.navigate({
-      routeName: 'DeckList',
-      params: {},
+      routeName: 'Deck',
+      params: {deck: newDeck },
+      action: NavigationActions.navigate({ routeName: 'Deck' }),
     });
     this.props.navigation.dispatch(navigateAction);
   }

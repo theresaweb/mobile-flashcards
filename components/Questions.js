@@ -43,7 +43,7 @@ class Questions extends Component {
   }
   toHome = () => {
     const navigateAction = NavigationActions.navigate({
-      routeName: 'DeckList',
+      routeName: 'home',
       params: {},
     });
     this.props.navigation.dispatch(navigateAction);

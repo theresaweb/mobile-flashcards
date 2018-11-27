@@ -5,6 +5,12 @@ import { updateDeck } from '../actions'
 import { NavigationActions } from 'react-navigation'
 
 class AddQuestion extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const { deck } = navigation.state.params
+     return {
+      title: deck.title
+    }
+  }
   state = {
    question: '',
    answer: '',

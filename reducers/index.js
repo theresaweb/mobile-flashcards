@@ -36,8 +36,6 @@ export default function decks (state = initialState, action) {
      case UPDATE_DECK:
        const decks = state.decks ? state.decks : {}
        decks[action.deck.title] = action.deck
-       console.log("deck sent to be merged", action.deck)
-       console.log("decks after merge of new question", decks)
        return {
            ...state,
            decks: decks

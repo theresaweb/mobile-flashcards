@@ -1,9 +1,10 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import Deck from './Deck'
-import Tabs from './Tabs'
 import Questions from './Questions'
 import AddQuestion from './AddQuestion'
+import AddDeck from './AddDeck'
+import Homepage from './Homepage'
 
 const options = {
   headerTintColor: 'white',
@@ -14,10 +15,14 @@ const options = {
 }
 const MainNavigator = createStackNavigator({
   home: {
-    screen: Tabs,
+    screen: Homepage,
     navigationOptions: {
       header: null,
     },
+  },
+  AddDeck: {
+    screen: AddDeck,
+    navigationOptions: ({ navigation }) => (options),
   },
   Deck: {
     screen: Deck,

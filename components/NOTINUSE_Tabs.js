@@ -17,6 +17,7 @@ const Tabs = createBottomTabNavigator(
     AddDeck: {
       screen: AddDeck,
       navigationOptions: {
+        tabBarLabel: 'Add Deck',
         tabBarIcon: ({tintColor}) => <MaterialCommunityIcons name='plus-box-outline' size={30} color={tintColor} />
 
       }
@@ -25,6 +26,7 @@ const Tabs = createBottomTabNavigator(
     navigationOptions: {
       header: null
     },
+    headerMode: 'float',
     tabBarOptions: {
       activeTintColor: 'white',
       inactiveTintColor: 'lightblue',
