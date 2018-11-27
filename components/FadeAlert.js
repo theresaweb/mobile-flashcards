@@ -10,7 +10,7 @@ class FadeAlert extends Component {
       this.state.fadeAnim,
       {
         toValue: 0,
-        duration: 10000,
+        duration: 6000,
       }
     ).start();
   }

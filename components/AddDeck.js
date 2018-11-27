@@ -15,12 +15,10 @@ class AddDeck extends Component {
    title: ''
   }
   submit = () => {
-    console.log("new title", this.state.title)
     const { title } = this.state
     const { dispatch } = this.props
     const newDeck  = {title: title, questions: []}
     dispatch(updateDeck(newDeck))
-    console.log("newDeck",newDeck)
     this.setState(() => ({ deck: {}, title: '' }))
     this.toDeck(newDeck)
      //clearLocalNotification()

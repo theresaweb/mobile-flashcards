@@ -12,7 +12,6 @@ class DeckCard extends Component {
     this.props.navigation.dispatch(navigateAction);
   }
   render() {
-    console.log("this.propsss",this.props)
     const deck = this.props.deck
     return (
         <Animated.View style={styles.deckBtn}>
