@@ -24,13 +24,14 @@ class Homepage extends Component {
     }
     return (
     <View style={styles.view}>
+      <Text style={styles.title}>My Flashcards</Text>
       <DeckList decks={decks} navigation={this.props.navigation} />
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
           this.props.navigation.push('AddDeck')}
           >
-        <Text>Add a new deck</Text>
+        <Text style={styles.text}>Add a new deck</Text>
       </TouchableOpacity>
     </View>
      )
@@ -39,17 +40,20 @@ class Homepage extends Component {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    marginTop: 20,
+    margin: 20,
     backgroundColor: 'white',
     color: 'black',
-    fontSize: 18,
   },
-  button: {
-    color: 'black',
+  text: {
     backgroundColor: 'blue',
-    padding: 20,
-    margin: 20,
-  }
+    fontSize: 30,
+    padding: 10,
+    textAlign: 'center'
+  },
+  title: {
+    fontSize: 30,
+    padding: 10,
+    textAlign: 'center'  }
 })
 function mapStateToProps (decks) {
   let allDecks = {}

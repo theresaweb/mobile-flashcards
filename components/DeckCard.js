@@ -50,16 +50,20 @@ class DeckCard extends Component {
           style={[styles.card,{backgroundColor}]}
           onPress={this.cardClick.bind(this)}
           >
-          <Text>{deck.title} ({deck.questions.length})</Text>
+          <Text style={styles.text}>{deck.title} ({deck.questions.length})</Text>
         </AnimatedCard>
       )
     }
   }
   const styles = StyleSheet.create({
     card: {
-      backgroundColor: 'white',
-      padding: 20,
-      margin: 20,
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    text: {
+      fontSize: 30,
+      padding: 10,
+      textAlign: 'center'
     }
   })
  export default withNavigation(DeckCard)

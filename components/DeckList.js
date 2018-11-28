@@ -19,17 +19,17 @@ class DeckList extends Component {
       decks.map(function(deck, index) {
         const thisDeck = deck[0]
          return (
-          <View key={index}>
+          <View key={index} style={styles.view}>
             <DeckCard deck={thisDeck} />
-        </View>
+          </View>
         )
       })
      )
   }
 }
 const styles = StyleSheet.create({
-  item: {
+  view: {
 
-  }
+  },
 })
 export default DeckList
