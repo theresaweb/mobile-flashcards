@@ -40,16 +40,15 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     marginTop: 20,
-    backgroundColor: 'green',
-    color: 'white',
+    backgroundColor: 'white',
+    color: 'black',
     fontSize: 18,
   },
   button: {
     color: 'black',
     backgroundColor: 'blue',
-    width: 300,
     padding: 20,
-    justifyContent: 'space-around'
+    margin: 20,
   }
 })
 function mapStateToProps (decks) {

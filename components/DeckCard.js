@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native'
+import {
+  Animated,
+  Easing,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  StyleSheet,
+  View,
+  } from 'react-native'
 import { NavigationActions, withNavigation } from 'react-navigation'
 
 class DeckCard extends Component {
+  state = {
+   backgroundColor: new Animated.Value(0)
+  }
   toDeck = () => {
     const deck = this.props.deck
     const navigateAction = NavigationActions.navigate({
@@ -11,23 +22,46 @@ class DeckCard extends Component {
     });
     this.props.navigation.dispatch(navigateAction);
   }
-  render() {
-    const deck = this.props.deck
-    return (
-        <Animated.View style={styles.deckBtn}>
-          <TouchableOpacity
-            onPress={this.toDeck} >
+  cardClick = () => {
+    Animated.sequence([
+        Animated.timing(this.state.backgroundColor, {
+            delay: 0,
+            duration: 500,
+            toValue: 1
+        }),
+        Animated.timing(this.state.backgroundColor, {
+            delay: 500,
+            duration: 500,
+            toValue: 0
+        })
+    ]).start();
+  }
+  componentDidMount() {
 
-            <Text>Title: {deck.title}</Text>
-            <Text>{deck.questions.length} card(s)</Text>
-          </TouchableOpacity>
-        </Animated.View>
+  }
+  render() {
+    const backgroundColor = this.state.backgroundColor.interpolate({
+        inputRange: [0, 1],
+        outputRange: ['rgba(255, 0, 0, 1)', 'rgba(255, 128, 0, .5)']
+    });
+    const deck = this.props.deck
+    let AnimatedCard = Animated.createAnimatedComponent(TouchableOpacity);
+    return (
+        <AnimatedCard
+          activeOpacity={1}
+          style={[styles.card,{backgroundColor}]}
+          onPress={this.cardClick.bind(this)}
+          >
+          <Text>Title: {deck.title} ({deck.questions.length})</Text>
+        </AnimatedCard>
       )
     }
   }
   const styles = StyleSheet.create({
-    item: {
-
+    card: {
+      backgroundColor: 'white',
+      padding: 20,
+      margin: 20,
     }
   })
  export default withNavigation(DeckCard)
