@@ -40,6 +40,11 @@ class AddQuestion extends Component {
   render() {
     return (
       <View style={styles.view}>
+        <TouchableOpacity
+          onPress={this.toDeck}>
+            <Text style={styles.button}>Back to Deck</Text>
+        </TouchableOpacity>
+        {this.state.added && <FadeAlert alert={'Question has been added'} />}
         <Text style={styles.subTitle}>Question:</Text>
         <TextInput
           style={styles.input}
@@ -56,11 +61,6 @@ class AddQuestion extends Component {
           onPress={this.submit}>
             <Text style={styles.buttonQuiz}>Add</Text>
         </TouchableOpacity>
-         {this.state.added && <FadeAlert alert={'Question has been added'} />}
-         <TouchableOpacity
-           onPress={this.toDeck}>
-             <Text style={styles.button}>Back to Deck</Text>
-         </TouchableOpacity>
         </View>
     )}
   }

@@ -69,8 +69,10 @@ class Questions extends Component {
         .then(setLocalNotification)
       return (
         <View style={styles.view}>
-          <Text style={styles.subTitle}>You're done!</Text>
-          <Text style={styles.subTitle}>You got {this.state.numCorrect} correct out of {questions.length} questions</Text>
+          <Text style={styles.title}>You're done!</Text>
+          <Text style={styles.subTitle}>
+          You got <Text style={styles.title}>{this.state.numCorrect}</Text> out of <Text style={styles.title}>{questions.length}</Text> correct.
+          </Text>
           <TouchableOpacity
             onPress={this.restartQuiz}>
               <Text style={styles.buttonQuiz}>Restart Quiz</Text>
@@ -129,7 +131,13 @@ class Questions extends Component {
     quesAns: {
       fontSize: 40,
       fontWeight: 'bold',
-      textAlign: 'center'
+      textAlign: 'center',
+      borderColor: 'rgb(0,0,0)',
+      borderWidth: 2,
+      marginRight: 20,
+      marginLeft: 20,
+      paddingTop: 50,
+      paddingBottom: 50,
     },
     numQuestions: {
       fontSize: 20,
@@ -139,7 +147,9 @@ class Questions extends Component {
     subTitle: {
       fontSize: 20,
       padding: 1,
-      textAlign: 'left'
+      textAlign: 'left',
+      margin: 20,
+      textAlign: 'center',
     },
     button: {
       backgroundColor: 'rgb(0,144,255)',

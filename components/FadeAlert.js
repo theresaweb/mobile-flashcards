@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Animated, StyleSheet } from 'react-native'
+import { Text, Animated } from 'react-native'
 
 class FadeAlert extends Component {
   state = {
@@ -12,10 +12,10 @@ class FadeAlert extends Component {
         toValue: 0,
         duration: 6000,
       }
-    ).start();
+    ).start()
   }
   render() {
-    let { fadeAnim } = this.state
+    let { fadeAnim, height } = this.state
     return (
            <Animated.Text
              style={{
@@ -30,9 +30,4 @@ class FadeAlert extends Component {
            </Animated.Text>
     )}
   }
-  const styles = StyleSheet.create({
-    alert: {
-
-    }
-  })
 export default FadeAlert

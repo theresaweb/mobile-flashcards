@@ -34,7 +34,7 @@ class DeckCard extends Component {
             duration: 50,
             toValue: 0
         })
-    ]).start(() => this.toDeck());
+    ]).start(() => this.toDeck())
 
   }
   render() {
