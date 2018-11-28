@@ -85,14 +85,14 @@ class AddQuestion extends Component {
       textAlign: 'left'
     },
     button: {
-      backgroundColor: 'blue',
+      backgroundColor: 'rgb(0,144,255)',
       fontSize: 30,
       padding: 10,
       margin: 10,
       textAlign: 'center'
     },
     buttonQuiz: {
-      backgroundColor: 'yellow',
+      backgroundColor: 'rgb(249,255,0)',
       fontSize: 30,
       padding: 10,
       margin: 10,

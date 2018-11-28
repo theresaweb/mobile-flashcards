@@ -7,13 +7,13 @@ import middleware from './middleware'
 import MainNavigator from './components/MainNavigator'
 
 export default class App extends React.Component {
-  componentDidMount() {
-    setLocalNotification()
+  state = {
+    fontLoaded: false,
   }
   render() {
     return (
       <Provider store={createStore(reducer, middleware)}>
-        <MainNavigator />
+          <MainNavigator />
       </Provider>
     )
   }

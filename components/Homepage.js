@@ -5,13 +5,6 @@ import { getDecks } from '../actions'
 import DeckList from './DeckList'
 
 class Homepage extends Component {
-  static navigationOptions = {
-  drawerLabel: 'Home',
-  drawerIcon: () => (
-    <Text>DRAWER
-    </Text>
-  ),
-};
   state = {
     ready: false,
   }
@@ -52,7 +45,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: 'rgb(0,144,255)',
     fontSize: 30,
     padding: 10,
     textAlign: 'center'

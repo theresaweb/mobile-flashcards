@@ -142,21 +142,21 @@ class Questions extends Component {
       textAlign: 'left'
     },
     button: {
-      backgroundColor: 'blue',
+      backgroundColor: 'rgb(0,144,255)',
       fontSize: 30,
       padding: 10,
       margin: 10,
       textAlign: 'center'
     },
     buttonQuiz: {
-      backgroundColor: 'yellow',
+      backgroundColor: 'rgb(249,255,0)',
       fontSize: 30,
       padding: 10,
       margin: 10,
       textAlign: 'center'
     },
     buttonFlip: {
-      backgroundColor: 'blue',
+      backgroundColor: 'rgb(0,144,255)',
       fontSize: 25,
       fontWeight: 'bold',
       color: 'white',
@@ -168,7 +168,7 @@ class Questions extends Component {
       textAlign: 'center'
     },
     buttonCorrect: {
-      backgroundColor: '#228b22',
+      backgroundColor: 'rgb(0,217,0)',
       fontSize: 25,
       fontWeight: 'bold',
       color: 'white',
@@ -180,7 +180,7 @@ class Questions extends Component {
       textAlign: 'center'
     },
     buttonIncorrect: {
-      backgroundColor: 'red',
+      backgroundColor: 'rgb(255,0,0)',
       fontSize: 25,
       fontWeight: 'bold',
       color: 'white',

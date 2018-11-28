@@ -13,10 +13,12 @@ ____
 Considerations
 _____
 * Notes
- * Developed only for Android as I don't have reliable iOs testing emulator or device
+ * Developed only for Android only as I don't have reliable iOs testing emulator or device
  * splash screen created using https://github.com/bamlab/generator-rn-toolbox/tree/master/generators/assets
  * TODO: add validation to forms to require all fields
  * TODO: add a fireworks animation if user gets all correct
+ * TODO: Better animation on clicking deck
+ * TODO: Add custom fonts
 
 Method
 * Planning
@@ -27,9 +29,8 @@ Method
  * Step 1 - Create the Required Views.
  * Step 2 - Use React Native Navigation to Connect the Views.
  * Step 3 - Work on the Views and State.
- * Step 4 - Add AsyncStorage.
- * Step 5 - Add notifications.
- * Step 6 - Add finishing touches and make sure the project meets the rubric.
+ * Step 4 - Add AsyncStorage of notification.
+ * Step 5 - Add finishing touches and make sure the project meets the rubric.
 
 TODO
 ____

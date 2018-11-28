@@ -64,7 +64,7 @@ class AddDeck extends Component {
       textAlign: 'center'
     },
     button: {
-      backgroundColor: 'blue',
+      backgroundColor: 'rgb(0,144,255)',
       fontSize: 30,
       padding: 10,
       margin: 10,

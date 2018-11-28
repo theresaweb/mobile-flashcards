@@ -3,7 +3,7 @@ import { Text, Animated, StyleSheet } from 'react-native'
 
 class FadeAlert extends Component {
   state = {
-   fadeAnim: new Animated.Value(1)
+   fadeAnim: new Animated.Value(.6)
   }
   componentDidMount() {
     Animated.timing(
@@ -21,7 +21,7 @@ class FadeAlert extends Component {
              style={{
                  ...this.props.style,
                  opacity: fadeAnim,
-                 backgroundColor: 'lightgreen',
+                 backgroundColor: 'rgb(0,217,0)',
                  padding: 5,
                  margin: 20
                }}
