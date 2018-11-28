@@ -26,17 +26,15 @@ class DeckCard extends Component {
     Animated.sequence([
         Animated.timing(this.state.backgroundColor, {
             delay: 0,
-            duration: 500,
+            duration: 700,
             toValue: 1
         }),
         Animated.timing(this.state.backgroundColor, {
-            delay: 500,
-            duration: 500,
+            delay: 100,
+            duration: 0,
             toValue: 0
         })
-    ]).start();
-  }
-  componentDidMount() {
+    ]).start(() => this.toDeck());
 
   }
   render() {
