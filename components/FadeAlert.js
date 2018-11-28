@@ -21,6 +21,9 @@ class FadeAlert extends Component {
              style={{
                  ...this.props.style,
                  opacity: fadeAnim,
+                 backgroundColor: 'lightgreen',
+                 padding: 5,
+                 margin: 20
                }}
            >
            {this.props.alert}
@@ -28,7 +31,7 @@ class FadeAlert extends Component {
     )}
   }
   const styles = StyleSheet.create({
-    item: {
+    alert: {
 
     }
   })

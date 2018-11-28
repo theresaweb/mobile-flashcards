@@ -15,6 +15,8 @@ _____
 * Notes
  * Developed only for Android as I don't have reliable iOs testing emulator or device
  * splash screen created using https://github.com/bamlab/generator-rn-toolbox/tree/master/generators/assets
+ * TODO: add validation to forms to require all fields
+ * TODO: add a fireworks animation if user gets all correct
 
 Method
 * Planning

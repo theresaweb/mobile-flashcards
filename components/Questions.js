@@ -68,30 +68,29 @@ class Questions extends Component {
       clearLocalNotification()
         .then(setLocalNotification)
       return (
-        <View>
-          <Text>You're done!</Text>
-          <Text>You got {this.state.numCorrect} correct out of {questions.length} questions</Text>
-          <TouchableOpacity
-            onPress={this.toDeck}>
-              <Text>Back to Deck</Text>
-          </TouchableOpacity>
+        <View style={styles.view}>
+          <Text style={styles.subTitle}>You're done!</Text>
+          <Text style={styles.subTitle}>You got {this.state.numCorrect} correct out of {questions.length} questions</Text>
           <TouchableOpacity
             onPress={this.restartQuiz}>
-              <Text>Restart Quiz</Text>
+              <Text style={styles.buttonQuiz}>Restart Quiz</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.toDeck}>
+              <Text style={styles.button}>Back to Deck</Text>
           </TouchableOpacity>
         </View>
       )
     }
      return (
-      <View>
-        <Text>{deck.title}</Text>
-        <Text>Question {this.state.currQuestion}/{questions.length}</Text>
-        <Text>{flipped ? questions[this.state.currQuestion -1].answer : questions[this.state.currQuestion - 1].question}</Text>
+      <View style={styles.view}>
+        <Text style={styles.numQuestions}>Question {this.state.currQuestion}/{questions.length}</Text>
+        <Text style={styles.quesAns}>{flipped ? questions[this.state.currQuestion -1].answer : questions[this.state.currQuestion - 1].question}</Text>
         {!flipped &&
         <TouchableOpacity
           onPress={this.flipCard}
         >
-          <Text> Show Answer </Text>
+          <Text style={styles.buttonFlip}> Show Answer </Text>
         </TouchableOpacity>
         }
         {flipped &&
@@ -99,12 +98,12 @@ class Questions extends Component {
           <TouchableOpacity
             onPress={this.tallyCorrect}
             >
-            <Text>Correct</Text>
+            <Text style={styles.buttonCorrect}>I was correct!</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={this.tallyIncorrect}
             >
-            <Text>Incorrect</Text>
+            <Text style={styles.buttonIncorrect}>I got it wrong :(</Text>
           </TouchableOpacity>
         </Fragment>
       }
@@ -113,8 +112,84 @@ class Questions extends Component {
     }
   }
   const styles = StyleSheet.create({
-    item: {
-
+    view: {
+      flex: 1,
+    },
+    input: {
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      margin: 10
+    },
+    title: {
+      fontSize: 30,
+      padding: 10,
+      textAlign: 'center'
+    },
+    quesAns: {
+      fontSize: 40,
+      fontWeight: 'bold',
+      textAlign: 'center'
+    },
+    numQuestions: {
+      fontSize: 20,
+      padding: 10,
+      textAlign: 'left'
+    },
+    subTitle: {
+      fontSize: 20,
+      padding: 1,
+      textAlign: 'left'
+    },
+    button: {
+      backgroundColor: 'blue',
+      fontSize: 30,
+      padding: 10,
+      margin: 10,
+      textAlign: 'center'
+    },
+    buttonQuiz: {
+      backgroundColor: 'yellow',
+      fontSize: 30,
+      padding: 10,
+      margin: 10,
+      textAlign: 'center'
+    },
+    buttonFlip: {
+      backgroundColor: 'blue',
+      fontSize: 25,
+      fontWeight: 'bold',
+      color: 'white',
+      marginTop: 10,
+      marginBottom: 10,
+      marginLeft: 40,
+      marginRight: 40,
+      padding: 20,
+      textAlign: 'center'
+    },
+    buttonCorrect: {
+      backgroundColor: '#228b22',
+      fontSize: 25,
+      fontWeight: 'bold',
+      color: 'white',
+      marginTop: 10,
+      marginBottom: 10,
+      marginLeft: 40,
+      marginRight: 40,
+      padding: 20,
+      textAlign: 'center'
+    },
+    buttonIncorrect: {
+      backgroundColor: 'red',
+      fontSize: 25,
+      fontWeight: 'bold',
+      color: 'white',
+      marginTop: 10,
+      marginBottom: 10,
+      marginLeft: 40,
+      marginRight: 40,
+      padding: 20,
+      textAlign: 'center'
     }
   })
  export default Questions

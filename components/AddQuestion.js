@@ -39,34 +39,64 @@ class AddQuestion extends Component {
   }
   render() {
     return (
-      <View style={{ marginTop: 20}}>
-        <Text>Question:</Text>
+      <View style={styles.view}>
+        <Text style={styles.subTitle}>Question:</Text>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          style={styles.input}
           onChangeText={(question) => this.setState({question, added: false})}
           value={this.state.question}
         />
-        <Text>Answer:</Text>
+        <Text style={styles.subTitle}>Answer:</Text>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          style={styles.input}
           onChangeText={(answer) => this.setState({answer, added: false})}
           value={this.state.answer}
         />
         <TouchableOpacity
           onPress={this.submit}>
-            <Text>Add Question</Text>
+            <Text style={styles.buttonQuiz}>Add</Text>
         </TouchableOpacity>
          {this.state.added && <FadeAlert alert={'Question has been added'} />}
          <TouchableOpacity
            onPress={this.toDeck}>
-             <Text>Back to Deck</Text>
+             <Text style={styles.button}>Back to Deck</Text>
          </TouchableOpacity>
         </View>
     )}
   }
   const styles = StyleSheet.create({
-    item: {
-
+    view: {
+      flex: 1,
+    },
+    input: {
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      margin: 10
+    },
+    title: {
+      fontSize: 30,
+      padding: 10,
+      textAlign: 'center'
+    },
+    subTitle: {
+      fontSize: 20,
+      padding: 1,
+      textAlign: 'left'
+    },
+    button: {
+      backgroundColor: 'blue',
+      fontSize: 30,
+      padding: 10,
+      margin: 10,
+      textAlign: 'center'
+    },
+    buttonQuiz: {
+      backgroundColor: 'yellow',
+      fontSize: 30,
+      padding: 10,
+      margin: 10,
+      textAlign: 'center'
     }
   })
 function mapStateToProps (decks) {

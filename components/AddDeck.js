@@ -34,23 +34,41 @@ class AddDeck extends Component {
   }
   render() {
     return (
-      <View style={{ marginTop: 20}}>
-        <Text>What is the title of your new deck?</Text>
+      <View>
+        <Text style={styles.title}>What is the title of your new deck?</Text>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          style={styles.input}
           onChangeText={(title) => this.setState({title})}
           value={this.state.title}
         />
         <TouchableOpacity
           onPress={this.submit}>
-            <Text>Add Deck</Text>
+            <Text style={styles.button}>Add Deck</Text>
         </TouchableOpacity>
        </View>
     )}
   }
   const styles = StyleSheet.create({
-    item: {
-
+    view: {
+      flex: 1,
+    },
+    input: {
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1,
+      margin: 10
+    },
+    title: {
+      fontSize: 30,
+      padding: 10,
+      textAlign: 'center'
+    },
+    button: {
+      backgroundColor: 'blue',
+      fontSize: 30,
+      padding: 10,
+      margin: 10,
+      textAlign: 'center'
     }
   })
 function mapStateToProps (decks) {

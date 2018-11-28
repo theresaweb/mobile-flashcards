@@ -19,7 +19,7 @@ class DeckList extends Component {
       decks.map(function(deck, index) {
         const thisDeck = deck[0]
          return (
-          <View key={index} style={styles.view}>
+          <View key={index}>
             <DeckCard deck={thisDeck} />
           </View>
         )

@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { getDecks } from '../actions'
 import DeckList from './DeckList'
 
 class Homepage extends Component {
+  static navigationOptions = {
+  drawerLabel: 'Home',
+  drawerIcon: () => (
+    <Text>DRAWER
+    </Text>
+  ),
+};
   state = {
     ready: false,
   }
@@ -24,14 +31,14 @@ class Homepage extends Component {
     }
     return (
     <View style={styles.view}>
-      <Text style={styles.title}>My Flashcards</Text>
+      <Text style={styles.mainTitle}>My Flashcards</Text>
       <DeckList decks={decks} navigation={this.props.navigation} />
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
           this.props.navigation.push('AddDeck')}
           >
-        <Text style={styles.text}>Add a new deck</Text>
+        <Text style={styles.button}>Add a new deck</Text>
       </TouchableOpacity>
     </View>
      )
@@ -44,9 +51,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     color: 'black',
   },
-  text: {
+  button: {
     backgroundColor: 'blue',
     fontSize: 30,
+    padding: 10,
+    textAlign: 'center'
+  },
+  mainTitle: {
+    fontSize: 40,
+    fontWeight: 'bold',
     padding: 10,
     textAlign: 'center'
   },
