@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation'
+import {
+  clearLocalNotification,
+  setLocalNotification
+} from '../utils/helpers'
 import DeckList from './DeckList'
 
 class Questions extends Component {
@@ -61,6 +65,8 @@ class Questions extends Component {
     const { questions } = deck
     const { flipped } = this.state
     if (this.state.currQuestion > questions.length) {
+      clearLocalNotification()
+        .then(setLocalNotification)
       return (
         <View>
           <Text>You're done!</Text>
