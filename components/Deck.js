@@ -12,17 +12,16 @@ class Deck extends Component {
   }
   render() {
     const deck = this.props.navigation.getParam('deck', null)
-    console.log("dec in Deck", deck)
      return (
       <View>
-        <Text>{deck.title}</Text>
+        <Text>{deck.title} ({deck.questions.length})</Text>
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate(
             'AddQuestion',
             { deck: deck }
             )}
             >
-          <Text>Add Question</Text>
+          <Text>Add Card</Text>
         </TouchableOpacity>
         {deck.questions.length > 0 &&
           <TouchableOpacity
@@ -31,7 +30,7 @@ class Deck extends Component {
               { deck: deck }
               )}
               >
-            <Text>Start Quiz</Text>
+            <Text>Start a Quiz</Text>
           </TouchableOpacity>
         }
       </View>

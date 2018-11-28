@@ -30,8 +30,8 @@ class DeckCard extends Component {
             toValue: 1
         }),
         Animated.timing(this.state.backgroundColor, {
-            delay: 100,
-            duration: 0,
+            delay: 200,
+            duration: 50,
             toValue: 0
         })
     ]).start(() => this.toDeck());
@@ -50,7 +50,7 @@ class DeckCard extends Component {
           style={[styles.card,{backgroundColor}]}
           onPress={this.cardClick.bind(this)}
           >
-          <Text>Title: {deck.title} ({deck.questions.length})</Text>
+          <Text>{deck.title} ({deck.questions.length})</Text>
         </AnimatedCard>
       )
     }

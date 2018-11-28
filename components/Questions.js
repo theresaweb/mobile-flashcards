@@ -21,6 +21,14 @@ class Questions extends Component {
       return { flipped: !prevState.flipped }
     })
   }
+  restartQuiz = () => {
+    this.setState({
+      currQuestion: 1,
+      flipped: false,
+      numCorrect: 0,
+      complete: false
+    })
+  }
   tallyCorrect = () => {
     this.setState((prevState) => {
       return {
@@ -38,10 +46,12 @@ class Questions extends Component {
       }
     })
   }
-  toHome = () => {
+  toDeck = () => {
+    const { navigation } = this.props
+    const deck = navigation.getParam('deck', null)
     const navigateAction = NavigationActions.navigate({
-      routeName: 'home',
-      params: {},
+      routeName: 'Deck',
+      params: {deck: deck},
     });
     this.props.navigation.dispatch(navigateAction);
   }
@@ -56,24 +66,28 @@ class Questions extends Component {
           <Text>You're done!</Text>
           <Text>You got {this.state.numCorrect} correct out of {questions.length} questions</Text>
           <TouchableOpacity
-            onPress={this.toHome}>
-              <Text>Back to Home</Text>
+            onPress={this.toDeck}>
+              <Text>Back to Deck</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={this.restartQuiz}>
+              <Text>Restart Quiz</Text>
           </TouchableOpacity>
         </View>
       )
     }
-
      return (
       <View>
         <Text>{deck.title}</Text>
         <Text>Question {this.state.currQuestion}/{questions.length}</Text>
         <Text>{flipped ? questions[this.state.currQuestion -1].answer : questions[this.state.currQuestion - 1].question}</Text>
+        {!flipped &&
         <TouchableOpacity
-          key="flip"
           onPress={this.flipCard}
         >
-          <Text> Flip </Text>
+          <Text> Show Answer </Text>
         </TouchableOpacity>
+        }
         {flipped &&
         <Fragment>
           <TouchableOpacity
