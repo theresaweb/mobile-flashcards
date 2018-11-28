@@ -14,6 +14,7 @@ Considerations
 _____
 * Notes
  * Developed only for Android as I don't have reliable iOs testing emulator or device
+ * splash screen created using https://github.com/bamlab/generator-rn-toolbox/tree/master/generators/assets
 
 Method
 * Planning

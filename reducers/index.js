@@ -2,28 +2,64 @@
 
  const initialState = {
    decks:  {
-     React: {
-       title: 'React',
+     Addition: {
+       title: 'Addition',
        questions: [
          {
-           question: 'What is React?',
-           answer: 'A library for managing user interfaces'
+           question: '1 + 1',
+           answer: '2'
          },
          {
-           question: 'Where do you make Ajax requests in React?',
-           answer: 'The componentDidMount lifecycle event'
+           question: '2 + 2',
+           answer: '4'
+         },
+         {
+           question: '3 + 1',
+           answer: '4'
+         },
+         {
+           question: '5 + 2',
+           answer: '7'
+         },
+         {
+           question: '1 + 9',
+           answer: '10'
+         },
+         {
+           question: '0 + 2',
+           answer: '2'
          }
        ]
      },
-     JavaScript: {
-       title: 'JavaScript',
+     Subtraction: {
+       title: 'Subtraction',
        questions: [
          {
-           question: 'What is a closure?',
-           answer: 'The combination of a function and the lexical environment within which that function was declared.'
+           question: '7 - 1',
+           answer: '6'
+         },
+         {
+           question: '8 - 3',
+           answer: '5'
+         },
+         {
+           question: '2 - 0',
+           answer: '2'
+         },
+         {
+           question: '3 - 3',
+           answer: '0'
+         },
+         {
+           question: '9 - 1',
+           answer: '8'
+         },
+         {
+           question: '1 - 1',
+           answer: '0'
          }
        ]
-     }
+     },
    }
  }
 export default function decks (state = initialState, action) {
