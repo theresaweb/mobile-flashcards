@@ -19,6 +19,9 @@ _____
  * TODO: add a fireworks animation if user gets all correct
  * TODO: Better animation on clicking deck
  * TODO: Add custom fonts
+ * TODO: flip animation when you switch between question and answer
+ * TODO: swipe animation to mark correct/incorrect by swiping left/right
+ * TODO: add features like streak counts, custom notification time, shuffling decks, deleting decks
 
 Method
 * Planning
@@ -70,7 +73,8 @@ ____
 
 Sample data
 ____
-```{
+```javascript
+{
   React: {
     title: 'React',
     questions: [
@@ -93,4 +97,5 @@ ____
       }
     ]
   }
-}```
+}
+```
